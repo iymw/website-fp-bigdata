@@ -1,9 +1,9 @@
 export interface Product {
   product_id?: string;
-  product_name?: string;
-  category?: string;
+  product_name: string;
+  category: string;
   discounted_price?: string;
-  actual_price?: string;
+  actual_price: string;
   discount_percentage?: string;
   rating: string;
   rating_count?: string;
