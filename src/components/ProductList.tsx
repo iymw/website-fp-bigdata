@@ -27,7 +27,7 @@ const ProductList = () => {
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        <div className="grid grid-cols-4 gap-4 pt-0 pb-8">
+        <div className="grid grid-cols-4 gap-4 pb-8 pt-0">
           {products
             .sort(function (a: Product, b: Product) {
               return parseFloat(b.rating) - parseFloat(a.rating);

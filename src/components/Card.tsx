@@ -19,7 +19,7 @@ const Card = ({ product_name, actual_price, category, rating }: Product) => {
           <p className="text-sm text-[#2E2E2E]">
             Category: <br /> {category?.slice(0, 20)} ...
           </p>
-          <div className="flex gap-2 items-center">
+          <div className="flex items-center gap-2">
             <FaStar color="#FFC400" size={20} />
             <p>{rating}</p>
           </div>

@@ -6,9 +6,9 @@ import { Button } from "@nextui-org/button";
 
 const NavigationBar = ({ children }: { children?: React.ReactNode }) => {
   return (
-    <nav className="flex z-50 bg-white sticky top-0 w-full justify-between items-center py-8">
+    <nav className="sticky top-0 z-50 flex w-full items-center justify-between bg-white py-8">
       <Image src="/amazon.png" width={120} radius="none" alt="Amazon" />
-      <div className="items-center flex gap-2">
+      <div className="flex items-center gap-2">
         {children}
         {[FaShoppingCart, BsFillPersonFill].map((Icon, index) => (
           <Button key={index} isIconOnly size="lg">
