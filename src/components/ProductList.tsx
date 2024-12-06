@@ -1,63 +1,48 @@
 import React, { useState } from "react";
+import { api } from "@/variable";
+import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { Product } from "@/productType";
+import Card from "./Card";
+import NavigationBar from "./NavigationBar";
+import { Input } from "@nextui-org/react";
 
-// Define the `fetchProducts` function to fetch data from the API
-const fetchProducts = async (): Promise<Product[]> => {
-  const response = await fetch("http://localhost:5000");
-  if (!response.ok) {
-    throw new Error("Failed to fetch products");
-  }
-  return response.json();
-};
+const ProductList = () => {
+  const fetchProducts = async () => {
+    const res = await axios.get(api as string);
 
-const ProductList: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+    return res.data;
+  };
 
-  const {
-    data = [],
-    isLoading,
-    error,
-  } = useQuery<Product[], Error>({
+  const { data: products, isLoading } = useQuery({
     queryKey: ["products"],
     queryFn: fetchProducts,
   });
 
-  if (isLoading) return <p>Loading...</p>;
-  if (error instanceof Error) return <p>Error: {error.message}</p>;
-
-  // Filter products based on `searchTerm`
-  const filteredProducts = data.filter((product) => {
-    const searchWords = searchTerm.trim().toLowerCase().split(" ");
-    return searchWords.every((word) =>
-      product.product_name.toLowerCase().includes(word),
-    );
-  });
-
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Search products..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="border p-2 mb-4"
-      />
-      <div className="grid grid-cols-1 gap-4">
-        {filteredProducts.map((product, index) => (
-          <div key={index} className="border p-4">
-            <img
-              src={product.img_link}
-              alt={product.product_name}
-              className="w-24 h-24"
-            />
-            <h3>Nama: {product.product_name}</h3>
-            <p>Category: {product.category}</p>
-            <p>Price: {product.actual_price}</p>
-            <p>Rating: {product.rating}</p>
-          </div>
-        ))}
-      </div>
+    <div className="px-52">
+      <NavigationBar>
+        <Input type="text" label="search product" />
+      </NavigationBar>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <div className="grid grid-cols-4 gap-4 pt-0 pb-8">
+          {products
+            .sort(function (a: Product, b: Product) {
+              return parseFloat(b.rating) - parseFloat(a.rating);
+            })
+            .map((p: Product, index: number) => (
+              <Card
+                key={index}
+                product_name={p.product_name}
+                actual_price={p.actual_price}
+                category={p.category}
+                rating={p.rating}
+              />
+            ))}
+        </div>
+      )}
     </div>
   );
 };
