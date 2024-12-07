@@ -20,13 +20,13 @@ const ProductList = () => {
 
   const ketemu = searchProducts(products?.data, search);
 
-  const [disabled, setDisabled] = useState<boolean>(false);
+  const [kunci, setKunci] = useState<number>();
 
   useEffect(() => {
     const productsLength = async () => {
       const p = (await fetchProducts(page + 1)).length;
 
-      if (p === 0) setDisabled(true);
+      if (p === 0) setKunci(page);
     };
 
     productsLength();
@@ -72,15 +72,16 @@ const ProductList = () => {
               onClick: () => setPage((prev) => (prev !== 0 ? prev - 1 : prev)),
             },
             {
-              check: disabled,
+              cek: page === kunci,
               name: "Next",
-              onClick: () => setPage((prev) => prev + 1),
+              onClick: () =>
+                setPage((prev) => (page === kunci ? prev : prev + 1)),
             },
           ].map((i, index) => (
             <Button
               key={index}
-              className={i.check ? "cursor-not-allowed" : ""}
-              disabled={i.check}
+              className={i.cek ? "cursor-not-allowed" : "cursor-pointer"}
+              disabled={i.cek}
               onClick={i.onClick}
               size="lg"
             >

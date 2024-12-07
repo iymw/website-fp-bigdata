@@ -13,7 +13,7 @@ cors = CORS(app, resources={r"/products/*": {"origins": "http://localhost:3000"}
 def ReturnJSON(): 
 	if(request.method == 'GET'):
 		page = int(request.args.get('_page', 0))
-		size = 84
+		size = 80
 
 		s = page * size
 		e = s + size 
