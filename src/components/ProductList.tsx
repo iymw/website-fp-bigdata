@@ -72,7 +72,7 @@ const ProductList = () => {
               onClick: () => setPage((prev) => (prev !== 0 ? prev - 1 : prev)),
             },
             {
-              cek: page === kunci,
+              check: page === kunci,
               name: "Next",
               onClick: () =>
                 setPage((prev) => (page === kunci ? prev : prev + 1)),
@@ -80,8 +80,8 @@ const ProductList = () => {
           ].map((i, index) => (
             <Button
               key={index}
-              className={i.cek ? "cursor-not-allowed" : "cursor-pointer"}
-              disabled={i.cek}
+              className={i.check ? "cursor-not-allowed" : ""}
+              disabled={i.check}
               onClick={i.onClick}
               size="lg"
             >
