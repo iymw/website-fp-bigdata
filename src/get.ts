@@ -5,5 +5,7 @@ export const fetchProducts = async (page: number) => {
   if (!res.ok) {
     throw new Error("There was an error!");
   }
-  return res.json();
+
+  const data = await res.json();
+  return { data: data, length: data.length };
 };

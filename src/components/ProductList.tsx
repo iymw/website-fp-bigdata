@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import { Product } from "@/productType";
 import Card from "./Card";
@@ -18,7 +18,19 @@ const ProductList = () => {
     placeholderData: keepPreviousData,
   });
 
-  const ketemu = searchProducts(products, search);
+  const ketemu = searchProducts(products?.data, search);
+
+  const [disabled, setDisabled] = useState<boolean>(false);
+
+  useEffect(() => {
+    const productsLength = async () => {
+      const p = (await fetchProducts(page + 1)).length;
+
+      if (p === 0) setDisabled(true);
+    };
+
+    productsLength();
+  }, [page]);
 
   return (
     <section className="px-52">
@@ -55,22 +67,20 @@ const ProductList = () => {
         <div className="space-x-2">
           {[
             {
-              className: page === 0 ? "cursor-not-allowed" : "",
-              disabled: page === 0,
+              check: page === 0,
               name: "Prev",
               onClick: () => setPage((prev) => (prev !== 0 ? prev - 1 : prev)),
             },
             {
-              className: "",
-              disabled: false,
+              check: disabled,
               name: "Next",
               onClick: () => setPage((prev) => prev + 1),
             },
           ].map((i, index) => (
             <Button
               key={index}
-              className={i.className}
-              disabled={i.disabled}
+              className={i.check ? "cursor-not-allowed" : ""}
+              disabled={i.check}
               onClick={i.onClick}
               size="lg"
             >
