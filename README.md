@@ -1,9 +1,13 @@
+## .env
+
+```
+NEXT_PUBLIC_API_URL_1=http://127.0.0.1:5000
+NEXT_PUBLIC_API_URL_2=http://127.0.0.1:5001
+```
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with
 [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## .env
-
-`NEXT_PUBLIC_API_URL=http://127.0.0.1:5000`
 
 ## Getting Started
 
