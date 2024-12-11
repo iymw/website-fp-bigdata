@@ -20,7 +20,6 @@ const Form = () => {
 
   const [loading_1, setLoading_1] = useState(false);
   const [loading_2, setLoading_2] = useState(false);
-  const [category, setCategory] = useState<string>("");
   const router = useRouter();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
@@ -42,7 +41,6 @@ const Form = () => {
         product_name: getValues("product_name"),
       });
       const data = response.data.predicted_category;
-      setCategory(data);
       setValue("category", data);
     } catch (error) {
       console.log(error);
@@ -69,30 +67,33 @@ const Form = () => {
             <div className="space-y-2">
               <div className="flex gap-4">
                 <Input
+                  className="w-full"
                   isInvalid={errors?.product_name ? true : false}
                   errorMessage="Product name field is required"
                   label="Product name"
                   size="md"
                   {...register("product_name", { required: true })}
                 />
-                <Input
-                  className="w-full"
-                  errorMessage="Category field is required"
-                  isInvalid={errors?.category ? true : false}
-                  label="Category"
-                  size="md"
-                  value={category}
-                  {...register("category", { required: true })}
-                />
+                <div className="w-full space-y-2">
+                  <Input
+                    className="w-full"
+                    errorMessage="Category field is required"
+                    isInvalid={errors?.category ? true : false}
+                    label="Category"
+                    size="md"
+                    value={getValues("category")}
+                    {...register("category", { required: true })}
+                  />
+                  <Button
+                    className="mt-6"
+                    isLoading={loading_2}
+                    onClick={handleAI}
+                    type="button"
+                  >
+                    Generate
+                  </Button>
+                </div>
               </div>
-              <Button
-                className="mt-6 w-full"
-                isLoading={loading_2}
-                onClick={handleAI}
-                type="button"
-              >
-                Generate Category
-              </Button>
             </div>
             <div className="flex gap-4">
               <Input
@@ -120,9 +121,7 @@ const Form = () => {
           </form>
         </div>
         <div className="flex h-screen w-full items-center justify-center bg-[#F8F8F8]">
-          <Link href="/">
-            <Image src="/online.png" alt="Online" width={500}></Image>
-          </Link>
+          <Image src="/online.png" alt="Online" width={500}></Image>
         </div>
       </section>
     </>
