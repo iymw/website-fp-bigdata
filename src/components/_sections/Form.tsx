@@ -51,21 +51,21 @@ const Form = () => {
 
   return (
     <>
-      <section className="flex">
+      <section className="sm:flex">
         <div className="flex h-screen w-full items-center">
           <form
-            className="mx-auto w-full space-y-8 rounded-xl px-20"
+            className="mx-auto w-full space-y-8 rounded-xl px-8 sm:px-20"
             onSubmit={handleSubmit(onSubmit)}
           >
             <article className="space-y-3">
-              <p className="text-5xl font-semibold">Create Product</p>
+              <p className="text-4xl font-bold sm:text-5xl">Create Product</p>
               <p>
                 Leverage our latest AI model to revolutionize product
                 categorization and elevate the user search experience!
               </p>
             </article>
             <div className="space-y-2">
-              <div className="flex gap-4">
+              <div className="flex flex-col gap-4 sm:flex-row">
                 <Input
                   className="w-full"
                   isInvalid={errors?.product_name ? true : false}
@@ -95,7 +95,7 @@ const Form = () => {
                 </div>
               </div>
             </div>
-            <div className="flex gap-4">
+            <div className="flex flex-col gap-4 sm:flex-row">
               <Input
                 errorMessage="Image link field is required"
                 isInvalid={errors?.img_link ? true : false}
@@ -120,7 +120,7 @@ const Form = () => {
             </Button>
           </form>
         </div>
-        <div className="flex h-screen w-full items-center justify-center bg-[#F8F8F8]">
+        <div className="hidden h-screen w-full items-center justify-center bg-[#F8F8F8] sm:flex">
           <Image src="/online.png" alt="Online" width={500}></Image>
         </div>
       </section>
