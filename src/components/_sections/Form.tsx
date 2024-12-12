@@ -1,7 +1,6 @@
 "use client";
 
 import { Button, Input, Image } from "@nextui-org/react";
-import Link from "next/link";
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
