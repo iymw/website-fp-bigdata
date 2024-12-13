@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import { Product } from "@/productType";
-import Card from "../Card";
-import NavigationBar from "../NavigationBar";
+import Card from "./Card";
+import NavigationBar from "./NavigationBar";
 import { Button, Input } from "@nextui-org/react";
 import { fetchProducts } from "@/get";
 import { searchProducts } from "@/search";
