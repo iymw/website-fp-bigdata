@@ -52,11 +52,11 @@ const Page = () => {
   return (
     <Form>
       <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
-        <article className="mb-10 space-y-3 text-center">
-          <p className="text-4xl font-semibold sm:text-5xl">
+        <article className="mb-16 space-y-3 text-center">
+          <p className="text-3xl font-semibold sm:text-5xl">
             Create New Product
           </p>
-          <p className="text-lg">
+          <p className="sm:text-lg">
             Leverage our latest AI model to revolutionize product categorization
             and elevate the user search experience!
           </p>
