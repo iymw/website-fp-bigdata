@@ -42,8 +42,11 @@ Proyek ini bertujuan melakukan **kategorisasi rekomendasi produk** untuk meningk
    - `pandas` 
    - `kafka-python` 
    - `boto3` 
-   - `pyspark` 
-
+   - `pyspark`
+   - `scikit-learn`
+   - `flask`
+   - `flask-cors`
+   - `nltk`
 ---
 
 ## Setup and Running Project
