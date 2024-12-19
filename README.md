@@ -16,7 +16,20 @@ Proyek ini bertujuan melakukan **kategorisasi rekomendasi produk** untuk meningk
 ---
 
 ##  Architecture Diagram
+![Shopping Process Flow Graph](https://github.com/user-attachments/assets/614ff80f-0747-40ad-a92e-61922bedc21b)
 
+
+---
+
+## Teknologi yang Digunakan:
+1. **Kafka**: Untuk membangun sistem pada data streaming real-time
+2. **Bidirectional Encoder Representations from Transformers (BERT)**: Untuk memahami konteks ulasan dengan lebih baik melalui pemrosesan bahasa alami (NLP) berbasis transformer
+3. **Dataset**: Dalam projek ini kita menggunakan dataset **Amazon Sales Dataset** yang memiliki data 1K+ Peringkat dan Ulasan Produk Amazon sesuai detailnya yang tercantum di situs web resmi Amazon
+4. **MinIo**: Penyimpanan objek (object storage) untuk menjadi alternatif yang sangat kompatibel dengan Amazon S3
+5. **PySpark**: Untuk memproses dataset dalam skala besar dengan distribusi komputasi yang efisien
+6. **Scikit-learn**: Untuk tugas pembelajaran mesin tradisional seperti klasifikasi dan evaluasi model
+7. **Flask**: Untuk membangun API RESTful yang dapat digunakan untuk menganalisis sentimen secara real-time atau sebagai backend untuk integrasi dengan sistem lain
+8. **PyTorch**: Untuk membangun dan melatih model deep learning berbasis BERT
 
 ## .env
 
