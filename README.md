@@ -1,3 +1,15 @@
+# FP-Big-Data-DataLakehouse
+
+## Kelompok 5 - Big Data (B)
+Anggota : 
+| Nama           | NRP           |
+|----------------|---------------|
+| Ong Valencio Jesse Purnomo  | 5027221002    |
+| Agas Ananta Wijaya   | 5027221004   |
+| Sylvia Febrianti  | 5027221019 |
+| Fazrul Ahmad F.  | 5027221025  |
+| Michael Wayne  | 5027221037  |
+
 ## .env
 
 ```
