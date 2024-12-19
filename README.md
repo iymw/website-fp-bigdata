@@ -10,6 +10,11 @@ Anggota :
 | Fazrul Ahmad F.  | 5027221025  |
 | Michael Wayne  | 5027221037  |
 
+## Project Overview
+Proyek ini bertujuan melakukan **kategorisasi rekomendasi produk** untuk meningkatkan SEO penjualan. Berbagai teknologi diintegrasi dalam projek ini, seperti **MinIo**, **Kafka**, dan juga otomatisasi berbasis machine learning.
+
+---
+
 ## .env
 
 ```
