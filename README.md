@@ -76,7 +76,7 @@ NEXT_PUBLIC_API_URL_2=http://127.0.0.1:5001
    - Daftar Produk: Produk seperti blender, air fryer, dan lainnya ditampilkan secara horizontal. Setiap produk memiliki nama, harga, kategori, dan rating.
    - Desain UI/UX: Tata letak yang rapi dan minimalis membuat pengalaman pengguna intuitif, dengan elemen visual utama seperti gambar produk besar dan informasi produk yang singkat.
      ![catalog](https://github.com/user-attachments/assets/a8e3fd8d-f16b-4600-9de1-c8cd6f6d75bf)
-2. Create Product <br>
+2. **Create Product** <br>
    Halaman ini digunakan untuk menambahkan produk baru ke dalam katalog. Terdapat kolom untuk memasukkan nama produk, kategori, tautan gambar, dan harga. Fitur ini mendukung penambahan produk secara manual oleh pengguna ke dalam basis data atau sistem manajemen produk. <br>
    Fitur:
    - Pengguna dapat memasukkan nama produk, kategori, tautan gambar, dan harga.
