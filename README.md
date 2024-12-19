@@ -15,7 +15,7 @@ Proyek ini bertujuan melakukan **kategorisasi rekomendasi produk** untuk meningk
 
 ---
 
-##  Architecture Diagram
+##  Flow Diagram
 ![Shopping Process Flow Graph](https://github.com/user-attachments/assets/614ff80f-0747-40ad-a92e-61922bedc21b)
 
 
@@ -30,6 +30,25 @@ Proyek ini bertujuan melakukan **kategorisasi rekomendasi produk** untuk meningk
 6. **Scikit-learn**: Untuk tugas pembelajaran mesin tradisional seperti klasifikasi dan evaluasi model
 7. **Flask**: Untuk membangun API RESTful yang dapat digunakan untuk menganalisis sentimen secara real-time atau sebagai backend untuk integrasi dengan sistem lain
 8. **PyTorch**: Untuk membangun dan melatih model deep learning berbasis BERT
+
+---
+
+### Kebutuhan Software:
+1. **Docker**.
+2. **Apache Kafka**.
+3. **MinIO**.
+4. **Apache Spark** (PySpark).
+5. **Python Libraries**:
+   - `pandas` 
+   - `kafka-python` 
+   - `boto3` 
+   - `pyspark` 
+
+---
+
+## Setup Project
+1. Pastikan semua dependencies sudah terinstall, seperti `npm install` (jika ada error, cobalah untuk menggunakan command `npm install --legacy-peer-deps`), docker, kafka, MinIo, Apache Spark, Python libraries, dan juga **Amazon Sales Dataset** (https://www.kaggle.com/datasets/karkavelrajaj/amazon-sales-dataset).
+
 
 ## .env
 
