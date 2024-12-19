@@ -46,8 +46,23 @@ Proyek ini bertujuan melakukan **kategorisasi rekomendasi produk** untuk meningk
 
 ---
 
-## Setup Project
+## Setup and Running Project
 1. Pastikan semua dependencies sudah terinstall, seperti `npm install` (jika ada error, cobalah untuk menggunakan command `npm install --legacy-peer-deps`), docker, kafka, MinIo, Apache Spark, Python libraries, dan juga **Amazon Sales Dataset** (https://www.kaggle.com/datasets/karkavelrajaj/amazon-sales-dataset).
+2. Run server dengan `npm run dev`, atau `yarn dev`, atau `pnpm dev`, atau `bun dev`. Lalu buka http://localhost:3000
+3. Masuk ke folder /bigData, letakkan file dataset disini, lalu ketikkan command berikut:
+   - `docker-compose up -d`
+   - `docker exec -it kafka kafka-topics --create --topic amazon-data --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1`
+   - `docker pull minio/minio`
+   - `docker run -d --name minio -p 9000:9000 -p 9090:9090 -e "MINIO_ROOT_USER=minioadmin" -e "MINIO_ROOT_PASSWORD=minioadmin" minio/minio server /data --console-address ":9090"`
+   - `python3 producer.py`
+   - `python3 consumer.py`
+4. Kemudian masuk ke folder /be, letakkan file dataset disini juga, lalu ketikkan command berikut:
+   - `python3 csvToJson.py`
+   - `python3 api.py`
+   - `python3 predict.py`
+
+
+---
 
 
 ## .env
